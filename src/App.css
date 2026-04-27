@@ -381,3 +381,50 @@ p {
   font-size: 18px;
   color: #111827;
 }
+
+.about {
+  margin-top: 60px; /* ⬅️ ОПУСКАЕМ ВНИЗ */
+  padding: 30px;
+  background: #f5f7fb;
+  border-radius: 20px;
+}
+
+.about h2 {
+  font-size: 22px; /* ⬅️ МЕНЬШЕ */
+  margin-bottom: 10px;
+}
+
+.about p {
+  font-size: 14px; /* ⬅️ МЕНЬШЕ */
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.about-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.about-card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid #e3e6ef;
+}
+
+.about-card h3 {
+  font-size: 16px; /* ⬅️ МЕНЬШЕ */
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  font-size: 13px;
+}
+
+.about-card span {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 13px;
+}
