@@ -148,8 +148,6 @@ export default function App() {
   const [activeWord, setActiveWord] = useState(null);
   const [selectedWord, setSelectedWord] = useState(null);
 
-  const [wrongImageId, setWrongImageId] = useState(null);
-  const [wrongWordId, setWrongWordId] = useState(null);
   const [wrongLetterIndex, setWrongLetterIndex] = useState(null);
 
   const [matchedIds, setMatchedIds] = useState([]);
@@ -166,7 +164,7 @@ export default function App() {
   const imageOptions = useMemo(() => {
     if (!selectedCategory) return [];
     return shuffleArray(selectedCategory.words);
-  }, [selectedCategory, currentIndex, level]);
+  }, [selectedCategory]);
 
   const letterOptions = useMemo(() => {
     if (!currentItem) return [];
@@ -187,8 +185,6 @@ export default function App() {
     setFinished(false);
     setActiveWord(null);
     setSelectedWord(null);
-    setWrongImageId(null);
-    setWrongWordId(null);
     setWrongLetterIndex(null);
     setAnswer([]);
     setUsedLetterIndexes([]);
@@ -232,8 +228,6 @@ export default function App() {
   function goNext() {
     setActiveWord(null);
     setSelectedWord(null);
-    setWrongImageId(null);
-    setWrongWordId(null);
     setWrongLetterIndex(null);
     setAnswer([]);
     setUsedLetterIndexes([]);
@@ -253,8 +247,6 @@ export default function App() {
     setFinished(false);
     setActiveWord(null);
     setSelectedWord(null);
-    setWrongImageId(null);
-    setWrongWordId(null);
     setWrongLetterIndex(null);
     setAnswer([]);
     setUsedLetterIndexes([]);
@@ -287,32 +279,6 @@ export default function App() {
     }, 5000);
   }
 }
-
-  function checkLevel1Image(item) {
-    if (!activeWord) return;
-
-    if (item.id === activeWord.id) {
-      goNext();
-    } else {
-      setWrongImageId(item.id);
-      setTimeout(() => setWrongImageId(null), 600);
-    }
-  }
-
-  function checkLevel2Image(item) {
-    if (!selectedWord) return;
-
-    if (item.id === selectedWord.id) {
-      goNext();
-    } else {
-      setWrongImageId(item.id);
-      setWrongWordId(selectedWord.id);
-      setTimeout(() => {
-        setWrongImageId(null);
-        setWrongWordId(null);
-      }, 700);
-    }
-  }
 
   function checkLevel1Pair(imageItem) {
   if (!activeWord) return;
