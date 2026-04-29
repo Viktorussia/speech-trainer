@@ -2,10 +2,14 @@ import { useMemo, useState } from "react";
 import "./App.css";
 
 // ИКОНКИ КАТЕГОРИЙ
-import dishesIcon from "./assets/images/categories/dishes.png";
-import clothesIcon from "./assets/images/categories/clothes.png";
-import techIcon from "./assets/images/categories/tech.png";
-import fruitsIcon from "./assets/images/categories/fruits.png";
+import dishesIcon from "./assets/categories/dishes.png";
+import clothesIcon from "./assets/categories/clothes.png";
+import techIcon from "./assets/categories/tech.png";
+import fruitsIcon from "./assets/categories/fruits.png";
+import animalsIcon from "./assets/categories/animals.png";
+import furnitureIcon from "./assets/categories/furniture.png";
+import vegetablesIcon from "./assets/categories/vegetables.png";
+import berriesIcon from "./assets/categories/berries.png";
 
 // ПОСУДА
 import tarelkaImg from "./assets/dishes/tarelka.png";
@@ -54,6 +58,103 @@ import kiwiImg from "./assets/fruits/kiwi.png";
 import melonImg from "./assets/fruits/melon.png";
 import watermelonImg from "./assets/fruits/watermelon.png";
 import lemonImg from "./assets/fruits/lemon.png";
+
+// ДОМАШНИЕ ЖИВОТНЫЕ
+import catImg from "./assets/animals/cat.png";
+import chickenImg from "./assets/animals/chicken.png";
+import cowImg from "./assets/animals/cow.png";
+import dogImg from "./assets/animals/dog.png";
+import goatImg from "./assets/animals/goat.png";
+import pigImg from "./assets/animals/pig.png";
+import rabbitImg from "./assets/animals/rabbit.png";
+import ramImg from "./assets/animals/ram.png";
+import roosterImg from "./assets/animals/rooster.png";
+import sheepImg from "./assets/animals/sheep.png";
+
+// МЕБЕЛЬ
+import armchairImg from "./assets/furniture/armchair.png";
+import bedImg from "./assets/furniture/bed.png";
+import chairImg from "./assets/furniture/chair.png";
+import dresserImg from "./assets/furniture/dresser.png";
+import lampImg from "./assets/furniture/lamp.png";
+import nightstandImg from "./assets/furniture/nightstand.png";
+import shelfImg from "./assets/furniture/shelf.png";
+import sofaImg from "./assets/furniture/sofa.png";
+import tableImg from "./assets/furniture/table.png";
+import wardrobeImg from "./assets/furniture/wardrobe.png";
+
+// ОВОЩИ
+import beetrootImg from "./assets/vegetables/beetroot.png";
+import bellpepperImg from "./assets/vegetables/bellpepper.png";
+import cabbageImg from "./assets/vegetables/cabbage.png";
+import carrotImg from "./assets/vegetables/carrot.png";
+import cucumberImg from "./assets/vegetables/cucumber.png";
+import eggplantImg from "./assets/vegetables/eggplant.png";
+import garlicbulbImg from "./assets/vegetables/garlicbulb.png";
+import onionImg from "./assets/vegetables/onion.png";
+import potatoImg from "./assets/vegetables/potato.png";
+import tomatoImg from "./assets/vegetables/tomato.png";
+
+// ЯГОДЫ
+import blackberryImg from "./assets/berries/blackberry.png";
+import blueberryImg from "./assets/berries/blueberry.png";
+import currantberriesImg from "./assets/berries/currantberries.png";
+import gooseberriesImg from "./assets/berries/gooseberries.png";
+import lingonberriesImg from "./assets/berries/lingonberries.png";
+import raspberryImg from "./assets/berries/raspberry.png";
+import seabuckthornImg from "./assets/berries/seabuckthorn.png";
+import strawberryImg from "./assets/berries/strawberry.png";
+import withstemImg from "./assets/berries/withstem.png";
+
+// АУДИО ФРУКТЫ
+import appleAudio from "./assets/audio/fruits/apple.mp3";
+import pearAudio from "./assets/audio/fruits/pear.mp3";
+import orangeAudio from "./assets/audio/fruits/orange.mp3";
+import bananaAudio from "./assets/audio/fruits/banana.mp3";
+import peachAudio from "./assets/audio/fruits/peach.mp3";
+import pineappleAudio from "./assets/audio/fruits/pineapple.mp3";
+import kiwiAudio from "./assets/audio/fruits/kiwi.mp3";
+import melonAudio from "./assets/audio/fruits/melon.mp3";
+import watermelonAudio from "./assets/audio/fruits/watermelon.mp3";
+import lemonAudio from "./assets/audio/fruits/lemon.mp3";
+
+// АУДИО БЫТОВАЯ ТЕХНИКА
+import washingAudio from "./assets/audio/tech/washing.mp3";
+import fridgeAudio from "./assets/audio/tech/refrigerator.mp3";
+import kettleAudio from "./assets/audio/tech/kettle.mp3";
+import microwaveAudio from "./assets/audio/tech/microwave.mp3";
+import vacuumAudio from "./assets/audio/tech/vacuum.mp3";
+import tvAudio from "./assets/audio/tech/tv.mp3";
+import ironAudio from "./assets/audio/tech/iron.mp3";
+import hairdryerAudio from "./assets/audio/tech/hairdryer.mp3";
+import conditionerAudio from "./assets/audio/tech/air.mp3";
+import mixerAudio from "./assets/audio/tech/hand.mp3";
+
+const fruitsAudioMap = {
+  apple: appleAudio,
+  pear: pearAudio,
+  orange: orangeAudio,
+  banana: bananaAudio,
+  peach: peachAudio,
+  pineapple: pineappleAudio,
+  kiwi: kiwiAudio,
+  melon: melonAudio,
+  watermelon: watermelonAudio,
+  lemon: lemonAudio,
+};
+
+const techAudioMap = {
+  washing: washingAudio,
+  fridge: fridgeAudio,
+  kettle: kettleAudio,
+  microwave: microwaveAudio,
+  vacuum: vacuumAudio,
+  tv: tvAudio,
+  iron: ironAudio,
+  hairdryer: hairdryerAudio,
+  conditioner: conditionerAudio,
+  mixer: mixerAudio,
+};
 
 const categories = [
   {
@@ -124,14 +225,98 @@ const categories = [
       { id: "lemon", word: "лимон", image: lemonImg },
     ],
   },
+  {
+  id: "animals",
+  name: "Домашние животные",
+  icon: animalsIcon,
+  words: [
+    { id: "cat", word: "кошка", image: catImg },
+    { id: "chicken", word: "курица", image: chickenImg },
+    { id: "cow", word: "корова", image: cowImg },
+    { id: "dog", word: "собака", image: dogImg },
+    { id: "goat", word: "коза", image: goatImg },
+    { id: "pig", word: "свинья", image: pigImg },
+    { id: "rabbit", word: "кролик", image: rabbitImg },
+    { id: "ram", word: "баран", image: ramImg },
+    { id: "rooster", word: "петух", image: roosterImg },
+    { id: "sheep", word: "овца", image: sheepImg },
+  ],
+},
+{
+  id: "furniture",
+  name: "Мебель",
+  icon: furnitureIcon,
+  words: [
+    { id: "armchair", word: "кресло", image: armchairImg },
+    { id: "bed", word: "кровать", image: bedImg },
+    { id: "chair", word: "стул", image: chairImg },
+    { id: "dresser", word: "комод", image: dresserImg },
+    { id: "lamp", word: "лампа", image: lampImg },
+    { id: "nightstand", word: "тумбочка", image: nightstandImg },
+    { id: "shelf", word: "полка", image: shelfImg },
+    { id: "sofa", word: "диван", image: sofaImg },
+    { id: "table", word: "стол", image: tableImg },
+    { id: "wardrobe", word: "шкаф", image: wardrobeImg },
+  ],
+},
+{
+  id: "vegetables",
+  name: "Овощи",
+  icon: vegetablesIcon,
+  words: [
+    { id: "beetroot", word: "свёкла", image: beetrootImg },
+    { id: "bellpepper", word: "перец", image: bellpepperImg },
+    { id: "cabbage", word: "капуста", image: cabbageImg },
+    { id: "carrot", word: "морковь", image: carrotImg },
+    { id: "cucumber", word: "огурец", image: cucumberImg },
+    { id: "eggplant", word: "баклажан", image: eggplantImg },
+    { id: "garlicbulb", word: "чеснок", image: garlicbulbImg },
+    { id: "onion", word: "лук", image: onionImg },
+    { id: "potato", word: "картофель", image: potatoImg },
+    { id: "tomato", word: "помидор", image: tomatoImg },
+  ],
+},
+{
+  id: "berries",
+  name: "Ягоды",
+  icon: berriesIcon,
+  words: [
+    { id: "blackberry", word: "ежевика", image: blackberryImg },
+    { id: "blueberry", word: "черника", image: blueberryImg },
+    { id: "currantberries", word: "смородина", image: currantberriesImg },
+    { id: "gooseberries", word: "крыжовник", image: gooseberriesImg },
+    { id: "lingonberries", word: "брусника", image: lingonberriesImg },
+    { id: "raspberry", word: "малина", image: raspberryImg },
+    { id: "seabuckthorn", word: "облепиха", image: seabuckthornImg },
+    { id: "strawberry", word: "клубника", image: strawberryImg },
+    { id: "withstem", word: "вишня", image: withstemImg },
+  ],
+},
 ];
 
 function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
-function speak(text) {
-  const utterance = new SpeechSynthesisUtterance(text);
+function speak(wordItem, category) {
+  const audioMaps = {
+    fruits: fruitsAudioMap,
+    tech: techAudioMap,
+  };
+
+  const categoryMap = audioMaps[category?.id];
+
+  if (categoryMap) {
+    const audioSrc = categoryMap[wordItem.id];
+    if (audioSrc) {
+      const audio = new Audio(audioSrc);
+      audio.play();
+      return;
+    }
+  }
+
+  // fallback (если нет аудио)
+  const utterance = new SpeechSynthesisUtterance(wordItem.word);
   utterance.lang = "ru-RU";
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterance);
@@ -325,10 +510,13 @@ export default function App() {
   }
 
   return (
-    <div className="app">
-      <h1>онлайн-тренажёр по восстановлению номинативной функции речи у пациентов с афазией</h1>
+  <div className="app">
+    {!selectedCategory && (
+      <>
+        <h1>онлайн-тренажёр по восстановлению номинативной функции речи у пациентов с афазией</h1>
+        <h2>Выберите категорию для тренировки</h2>
+        <p>Занимайтесь ежедневно и улучшайте свою речь</p>
 
-      {!selectedCategory && (
         <div className="categories">
           {categories.map((category) => (
             <button
@@ -341,49 +529,67 @@ export default function App() {
             </button>
           ))}
         </div>
-      )}
-      <div className="about">
-  <h2>О проекте</h2>
-  <p>
-    Интерактивный онлайн-тренажёр разработан для поддержки занятий...
-  </p>
 
-  <div className="about-grid">
-    <div className="about-card">
-      <h3>Логопедическая часть</h3>
-      <p>Подготовка речевого материала...</p>
-      <span>Алина, логопед</span>
-    </div>
+        <div className="about">
+          <h2>О проекте</h2>
+          <p>
+            Интерактивный онлайн-тренажёр разработан для поддержки занятий...
+          </p>
 
-    <div className="about-card">
-      <h3>Техническая реализация</h3>
-      <p>Проектирование интерфейса...</p>
-      <span>Виктор, разработчик</span>
-    </div>
-  </div>
-</div>
+          <div className="about-grid">
+            <div className="about-card">
+              <h3>Логопедическая часть</h3>
+              <p>Подготовка речевого материала...</p>
+              <span>Алина, логопед</span>
+            </div>
+
+            <div className="about-card">
+              <h3>Техническая реализация</h3>
+              <p>Проектирование интерфейса...</p>
+              <span>Виктор, разработчик</span>
+            </div>
+          </div>
+        </div>
+      </>
+    )}
 
       {selectedCategory && !level && (
-        <div className="levels">
-          <button className="back-btn" onClick={backToCategories}>
-            ← Назад
-          </button>
+  <div className="levels category-screen">
+    <button className="back-btn level-back" onClick={backToCategories}>
+      ← Назад
+    </button>
 
-          <h2>{selectedCategory.name}</h2>
+    <div className="category-header">
+      <img
+        src={selectedCategory.icon}
+        alt={selectedCategory.name}
+        className="selected-category-icon"
+      />
 
-          <button onClick={() => startExercise(selectedCategory, 1)}>
-            Уровень 1 — слушай и выбирай
-          </button>
+      <div>
+        <h2>{selectedCategory.name}</h2>
+        <p>
+          Выберите режим тренировки. В категории доступно{" "}
+          <b>{selectedCategory.words.length}</b> слов.
+        </p>
+      </div>
+    </div>
 
-          <button onClick={() => startExercise(selectedCategory, 2)}>
-            Уровень 2 — слово и картинка
-          </button>
+    <div className="level-buttons">
+      <button onClick={() => startExercise(selectedCategory, 1)}>
+        Уровень 1 — слушай и выбирай
+      </button>
 
-          <button onClick={() => startExercise(selectedCategory, 3)}>
-            Уровень 3 — собери слово
-          </button>
-        </div>
-      )}
+      <button onClick={() => startExercise(selectedCategory, 2)}>
+        Уровень 2 — слово и картинка
+      </button>
+
+      <button onClick={() => startExercise(selectedCategory, 3)}>
+        Уровень 3 — собери слово
+      </button>
+    </div>
+  </div>
+)}
 
       {finished && (
         <div className="game">
@@ -433,7 +639,7 @@ export default function App() {
             onClick={() => {
               if (matchedIds.includes(item.id)) return;
               setActiveWord(item);
-              speak(item.word);
+              speak(item, selectedCategory);
             }}
           >
             🔊
