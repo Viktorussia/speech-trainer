@@ -130,6 +130,81 @@ import hairdryerAudio from "./assets/audio/tech/hairdryer.mp3";
 import conditionerAudio from "./assets/audio/tech/air.mp3";
 import mixerAudio from "./assets/audio/tech/hand.mp3";
 
+// АУДИО ДОМАШНИЕЕ ЖИВОТНЫЕ
+import catAudio from "./assets/audio/animals/cat.mp3";
+import chickenAudio from "./assets/audio/animals/chicken.mp3";
+import cowAudio from "./assets/audio/animals/cow.mp3";
+import dogAudio from "./assets/audio/animals/dog.mp3";
+import goatAudio from "./assets/audio/animals/goat.mp3";
+import pigAudio from "./assets/audio/animals/pig.mp3";
+import rabbitAudio from "./assets/audio/animals/rabbit.mp3";
+import ramAudio from "./assets/audio/animals/ram.mp3";
+import roosterAudio from "./assets/audio/animals/rooster.mp3";
+import sheepAudio from "./assets/audio/animals/sheep.mp3";
+
+// АУДИО ОДЕЖДА
+import tshirtAudio from "./assets/audio/clothes/tshirt.mp3";
+import shortsAudio from "./assets/audio/clothes/shorts.mp3";
+import sweaterAudio from "./assets/audio/clothes/sweater.mp3";
+import pantsAudio from "./assets/audio/clothes/pants.mp3";
+import skirtAudio from "./assets/audio/clothes/skirt.mp3";
+import dressAudio from "./assets/audio/clothes/dress.mp3";
+import jacketAudio from "./assets/audio/clothes/jacket.mp3";
+import shirtAudio from "./assets/audio/clothes/shirt.mp3";
+import socksAudio from "./assets/audio/clothes/socks.mp3";
+import tanktopAudio from "./assets/audio/clothes/tanktop.mp3";
+
+// АУДИО ПОСУДА
+import tarelkaAudio from "./assets/audio/dishes/tarelka.mp3";
+import lozhkaAudio from "./assets/audio/dishes/lozhka.mp3";
+import vilkaAudio from "./assets/audio/dishes/vilka.mp3";
+import nozhAudio from "./assets/audio/dishes/nozh.mp3";
+import kruzhkaAudio from "./assets/audio/dishes/kruzhka.mp3";
+import kastryulyaAudio from "./assets/audio/dishes/kastryulya.mp3";
+import skovorodkaAudio from "./assets/audio/dishes/skovorodka.mp3";
+import lopatkaAudio from "./assets/audio/dishes/lopatka.mp3";
+import blyudtseAudio from "./assets/audio/dishes/blyudtse.mp3";
+import povaryoshkaAudio from "./assets/audio/dishes/povaryoshka.mp3";
+
+const dishesAudioMap = {
+  tarelka: tarelkaAudio,
+  lozhka: lozhkaAudio,
+  vilka: vilkaAudio,
+  nozh: nozhAudio,
+  kruzhka: kruzhkaAudio,
+  kastryulya: kastryulyaAudio,
+  skovorodka: skovorodkaAudio,
+  lopatka: lopatkaAudio,
+  blyudtse: blyudtseAudio,
+  povaryoshka: povaryoshkaAudio,
+};
+
+const clothesAudioMap = {
+  tshirt: tshirtAudio,
+  shorts: shortsAudio,
+  sweater: sweaterAudio,
+  pants: pantsAudio,
+  skirt: skirtAudio,
+  dress: dressAudio,
+  jacket: jacketAudio,
+  shirt: shirtAudio,
+  socks: socksAudio,
+  tanktop: tanktopAudio,
+};
+
+const animalsAudioMap = {
+  cat: catAudio,
+  chicken: chickenAudio,
+  cow: cowAudio,
+  dog: dogAudio,
+  goat: goatAudio,
+  pig: pigAudio,
+  rabbit: rabbitAudio,
+  ram: ramAudio,
+  rooster: roosterAudio,
+  sheep: sheepAudio,
+};
+
 const fruitsAudioMap = {
   apple: appleAudio,
   pear: pearAudio,
@@ -302,6 +377,9 @@ function speak(wordItem, category) {
   const audioMaps = {
     fruits: fruitsAudioMap,
     tech: techAudioMap,
+    animals: animalsAudioMap,
+    clothes: clothesAudioMap,
+    dishes: dishesAudioMap,
   };
 
   const categoryMap = audioMaps[category?.id];
@@ -315,7 +393,6 @@ function speak(wordItem, category) {
     }
   }
 
-  // fallback (если нет аудио)
   const utterance = new SpeechSynthesisUtterance(wordItem.word);
   utterance.lang = "ru-RU";
   window.speechSynthesis.cancel();
