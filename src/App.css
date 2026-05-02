@@ -5,51 +5,55 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #eef5ff, #f8fbff);
+  background: linear-gradient(160deg, #ffffff, #ffffff);
   color: #1f2937;
 }
 
 .app {
   min-height: 135vh;
-  padding: 45px;
+  padding: 20px;
   text-align: center;
 }
 
 h1 {
   margin: 4px 8px;
-  font-size: 30px;
-  color: #637184eb;
+  font-size: 45px;
+  color: #4305fc95;
+  line-height: normal;
+  padding: 20px;
 }
 
 h2 {
-  margin-top: 20px;
-  font-size: 30px;
+  margin-top: 100px;
+  font-size: 35px;
+  padding: 5px;
+  line-height: normal;
 }
 
 .categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax( 149px, 9fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax( 149px, 5fr));
+  gap: 45px;
   max-width: 2000px;
-  margin: 80px auto;
+  margin: 35px auto;
 }
 
 .category-card {
-  background: #ffffff83;
+  background: #fcfcfc;
   border: none;
-  border-radius: 99px;
-  padding: 45px 1px;
+  border-radius: 85px;
+  padding: 45px 10px;
   cursor: pointer;
-  font-size: 19px;
-  font-weight: 600;
-  color: #1846d1a8;
-  box-shadow: 10px 10px 20px rgba(249, 249, 249, 0.14);
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  box-shadow: 1px 1px 20px rgb(255, 255, 255);
   transition: 0.95s ease;
 }
 
 .category-card:hover {
-  transform: translateY(39px);
-  box-shadow: 1px 3px 40px 7px rgb(212, 194, 235);
+  transform: translateY(25px);
+  box-shadow: 1px 3px 40px 7px rgba(224, 197, 255, 0.685);
 }
 
 .category-icon {
@@ -64,21 +68,21 @@ h2 {
   max-width: 1050px;
   margin: 0 auto;
   background: #ffffff;
-  border-radius: 28px;
-  padding: 20px;
-  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.14);
+  border-radius: 88px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(37, 99, 235, 0.14);
 }
 
 .levels button,
 .back-btn,
 .sound-btn,
 .next-btn {
-  margin: 10px;
-  padding: 34px 15px;
+  margin: 18px;
+  padding: 20px 24px;
   border: none;
-  border-radius: 66px;
+  border-radius: 45px;
   background: #3176e4;
-  color: rgb(251, 237, 207);
+  color: rgb(255, 255, 255);
   cursor: pointer;
   font-size: 15px;
   font-weight: 700;
@@ -112,38 +116,38 @@ h2 {
 .word-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 20px;
+  gap: 25px;
   margin-top: 26px;
 }
 
 .word-card {
-  background: hsl(0, 100%, 99%);
-  border: 0px solid #d4dee9;
-  border-radius: 35px;
-  padding: 18px;
+  background: hsl(0, 0%, 100%);
+  border: 0px solid #ffffff;
+  border-radius: 30px;
+  padding: 10px;
   cursor: pointer;
-  transition: 0.50s ease;
-  font-size: 5px;
-  font-weight: 600;
-  color: #0ea709;
+  transition: 0.70s ease;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #259a21;
 }
 
 .word-card:hover {
   transform: translateY(8px);
-  border-color: #fbfbfb;
-  background: #ffffff;
+  border-color: #ffffff;
+  background: #fcfcfc;
 }
 
 .word-card img {
-  width: 170px;
-  height: 120px;
+  width: 145px;
+  height: 138px;
   object-fit: contain;
-  display: block;
-  margin: 0 auto 4px;
+  display: grid;
+  margin: 0px auto 0px;
 }
 
 .task-image-wrap {
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .task-image {
@@ -152,7 +156,7 @@ h2 {
   object-fit: contain;
   background: #ffffff21;
   border-radius: 28px;
-  padding: 18px;
+  padding: 15px;
   box-shadow: 2px 2px 15px rgba(16, 67, 161, 0.671);
 }
 

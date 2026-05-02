@@ -105,6 +105,7 @@ import raspberryImg from "./assets/berries/raspberry.png";
 import seabuckthornImg from "./assets/berries/seabuckthorn.png";
 import strawberryImg from "./assets/berries/strawberry.png";
 import withstemImg from "./assets/berries/withstem.png";
+import rosehipImg from "./assets/berries/rosehip.png";
 
 // АУДИО ФРУКТЫ
 import appleAudio from "./assets/audio/fruits/apple.mp3";
@@ -165,6 +166,83 @@ import skovorodkaAudio from "./assets/audio/dishes/skovorodka.mp3";
 import lopatkaAudio from "./assets/audio/dishes/lopatka.mp3";
 import blyudtseAudio from "./assets/audio/dishes/blyudtse.mp3";
 import povaryoshkaAudio from "./assets/audio/dishes/povaryoshka.mp3";
+
+// АУДИО МЕБЕЛЬ
+import armchairAudio from "./assets/audio/furniture/armchair.mp3";
+import bedAudio from "./assets/audio/furniture/bed.mp3";
+import chairAudio from "./assets/audio/furniture/chair.mp3";
+import dresserAudio from "./assets/audio/furniture/dresser.mp3";
+import lampAudio from "./assets/audio/furniture/lamp.mp3";
+import nightstandAudio from "./assets/audio/furniture/nightstand.mp3";
+import shelfAudio from "./assets/audio/furniture/shelf.mp3";
+import sofaAudio from "./assets/audio/furniture/sofa.mp3";
+import tableAudio from "./assets/audio/furniture/table.mp3";
+import wardrobeAudio from "./assets/audio/furniture/wardrobe.mp3";
+
+// АУДИО ЯГОДЫ
+import blackberryAudio from "./assets/audio/berries/blackberry.mp3";
+import blueberryAudio from "./assets/audio/berries/blueberry.mp3";
+import currantberriesAudio from "./assets/audio/berries/currantberries.mp3";
+import gooseberriesAudio from "./assets/audio/berries/gooseberries.mp3";
+import lingonberriesAudio from "./assets/audio/berries/lingonberries.mp3";
+import raspberryAudio from "./assets/audio/berries/raspberry.mp3";
+import rosehipAudio from "./assets/audio/berries/rosehip.mp3";
+import seabuckthornAudio from "./assets/audio/berries/seabuckthorn.mp3";
+import strawberryAudio from "./assets/audio/berries/strawberry.mp3";
+import withstemAudio from "./assets/audio/berries/withstem.mp3";
+
+
+// АУДИО ОВОЩИ
+import beetrootAudio from "./assets/audio/vegetables/beetroot.mp3";
+import bellpepperAudio from "./assets/audio/vegetables/bellpepper.mp3";
+import cabbageAudio from "./assets/audio/vegetables/cabbage.mp3";
+import carrotAudio from "./assets/audio/vegetables/carrot.mp3";
+import cucumberAudio from "./assets/audio/vegetables/cucumber.mp3";
+import eggplantAydio from "./assets/audio/vegetables/eggplant.mp3";
+import garlicbulbAudio from "./assets/audio/vegetables/garlicbulb.mp3";
+import onionAudio from "./assets/audio/vegetables/onion.mp3";
+import potatoAudio from "./assets/audio/vegetables/potato.mp3";
+import tomatoAudio from "./assets/audio/vegetables/tomato.mp3";
+
+const vegetablesAudioMap = {
+  beetroot: beetrootAudio,
+  bellpepper: bellpepperAudio,
+  cabbage: cabbageAudio,
+  carrot: carrotAudio,
+  cucumber: cucumberAudio,
+  eggplant: eggplantAydio,
+  garlicbulb: garlicbulbAudio,
+  onion: onionAudio,
+  potato: potatoAudio,
+  tomato: tomatoAudio,
+};
+
+const berriesAudioMap = {
+  blackberry: blackberryAudio,
+  blueberry: blueberryAudio,
+  currantberries: currantberriesAudio,
+  gooseberries: gooseberriesAudio,
+  lingonberries: lingonberriesAudio,
+  raspberry: raspberryAudio,
+  seabuckthorn: seabuckthornAudio,
+  strawberry: strawberryAudio,
+  withstem: withstemAudio,
+  rosehip: rosehipAudio,
+};
+
+
+const furnitureAudioMap = {
+  armchair: armchairAudio,
+  bed: bedAudio,
+  chair: chairAudio,
+  dresser: dresserAudio,
+  lamp: lampAudio,
+  nightstand: nightstandAudio,
+  shelf: shelfAudio,
+  sofa: sofaAudio,
+  table: tableAudio,
+  wardrobe: wardrobeAudio,
+};
 
 const dishesAudioMap = {
   tarelka: tarelkaAudio,
@@ -365,6 +443,7 @@ const categories = [
     { id: "seabuckthorn", word: "облепиха", image: seabuckthornImg },
     { id: "strawberry", word: "клубника", image: strawberryImg },
     { id: "withstem", word: "вишня", image: withstemImg },
+    { id: "rosehip", word: "шиповник", image: rosehipImg },
   ],
 },
 ];
@@ -380,6 +459,9 @@ function speak(wordItem, category) {
     animals: animalsAudioMap,
     clothes: clothesAudioMap,
     dishes: dishesAudioMap,
+    furniture: furnitureAudioMap,
+    berries: berriesAudioMap,
+    vegetables: vegetablesAudioMap,
   };
 
   const categoryMap = audioMaps[category?.id];
@@ -585,12 +667,12 @@ export default function App() {
       }, 700);
     }
   }
-
+  
   return (
   <div className="app">
     {!selectedCategory && (
       <>
-        <h1>онлайн-тренажёр по восстановлению номинативной функции речи у пациентов с афазией</h1>
+        <h1>Онлайн-тренажёр по восстановлению номинативной функции речи у пациентов с афазией</h1>
         <h2>Выберите категорию для тренировки</h2>
         <p>Занимайтесь ежедневно и улучшайте свою речь</p>
 
