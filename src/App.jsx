@@ -502,13 +502,9 @@ export default function App() {
 
   const [answer, setAnswer] = useState([]);
   const [usedLetterIndexes, setUsedLetterIndexes] = useState([]);
+  const [imageOptions, setImageOptions] = useState([]);
 
   const currentItem = exerciseWords[currentIndex];
-
-  const imageOptions = useMemo(() => {
-    if (!selectedCategory) return [];
-    return shuffleArray(selectedCategory.words);
-  }, [selectedCategory]);
 
   const letterOptions = useMemo(() => {
     if (!currentItem) return [];
@@ -525,6 +521,7 @@ export default function App() {
     setSelectedCategory(category);
     setLevel(levelValue);
     setExerciseWords(shuffleArray(category.words));
+    setImageOptions(shuffleArray(category.words));
     setCurrentIndex(0);
     setFinished(false);
     setActiveWord(null);
@@ -543,12 +540,14 @@ export default function App() {
     setSelectedCategory(category);
     setLevel(null);
     setFinished(false);
+    setImageOptions([]);
   }
 
   function backToCategories() {
     setSelectedCategory(null);
     setLevel(null);
     setExerciseWords([]);
+    setImageOptions([]);
     setCurrentIndex(0);
     setFinished(false);
   }
@@ -556,6 +555,7 @@ export default function App() {
   function backToLevels() {
     setLevel(null);
     setExerciseWords([]);
+    setImageOptions([]);
     setCurrentIndex(0);
     setFinished(false);
     setActiveWord(null);
@@ -587,6 +587,7 @@ export default function App() {
     if (!selectedCategory || !level) return;
 
     setExerciseWords(shuffleArray(selectedCategory.words));
+    setImageOptions(shuffleArray(selectedCategory.words));
     setCurrentIndex(0);
     setFinished(false);
     setActiveWord(null);
@@ -607,6 +608,7 @@ export default function App() {
 
   if (imageItem.id === selectedWord.id) {
     setMatchedWordIds([...matchedWordIds, imageItem.id]);
+    setImageOptions(shuffleArray(selectedCategory.words));
     setSelectedWord(null);
 
     if (matchedWordIds.length + 1 >= exerciseWords.length) {
@@ -672,9 +674,18 @@ export default function App() {
   <div className="app">
     {!selectedCategory && (
       <>
-        <h1>Онлайн-тренажёр по восстановлению номинативной функции речи у пациентов с афазией</h1>
-        <h2>Выберите категорию для тренировки</h2>
-        <p>Занимайтесь ежедневно и улучшайте свою речь</p>
+        <header className="home-hero">
+          <span className="hero-badge">Для пациентов с афазией</span>
+          <h1 className="brand-title">Афазия Тренер</h1>
+          <p className="brand-subtitle">
+            Онлайн-тренажёр по восстановлению номинативной функции речи
+          </p>
+        </header>
+
+        <section className="category-intro" aria-labelledby="category-title">
+          <h2 id="category-title">Выберите категорию для тренировки</h2>
+          <p>Занимайтесь ежедневно и улучшайте свою речь</p>
+        </section>
 
         <div className="categories">
           {categories.map((category) => (
@@ -689,26 +700,32 @@ export default function App() {
           ))}
         </div>
 
-        <div className="about">
-          <h2>О проекте</h2>
-          <p>
-            Интерактивный онлайн-тренажёр разработан для поддержки занятий...
-          </p>
+        <section className="about" aria-labelledby="about-title">
+          <div className="about-header">
+            <span className="about-kicker">О проекте</span>
+            <h2 id="about-title">Тренажёр для регулярной речевой практики</h2>
+            <p>
+              Интерактивные упражнения помогают связывать слово, звук и изображение
+              в спокойном темпе, который подходит для ежедневных занятий.
+            </p>
+          </div>
 
           <div className="about-grid">
-            <div className="about-card">
-              <h3>Логопедическая часть</h3>
-              <p>Подготовка речевого материала...</p>
-              <span>Алина, логопед</span>
-            </div>
+            <article className="about-card">
+              <span className="about-card-label">Логопедическая часть</span>
+              <h3>Речевой материал</h3>
+              <p>Подбор категорий, слов и структуры упражнений для тренировки называния.</p>
+              <strong>Алина, логопед</strong>
+            </article>
 
-            <div className="about-card">
-              <h3>Техническая реализация</h3>
-              <p>Проектирование интерфейса...</p>
-              <span>Виктор, разработчик</span>
-            </div>
+            <article className="about-card">
+              <span className="about-card-label">Техническая реализация</span>
+              <h3>Интерфейс и упражнения</h3>
+              <p>Разработка понятной навигации, интерактивных уровней и визуальной обратной связи.</p>
+              <strong>Виктор, разработчик</strong>
+            </article>
           </div>
-        </div>
+        </section>
       </>
     )}
 

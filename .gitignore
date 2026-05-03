@@ -12,11 +12,6 @@ dist
 dist-ssr
 *.local
 
-node_modules
-dist
-.vs
-.vercel
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
