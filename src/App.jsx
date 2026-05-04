@@ -715,14 +715,14 @@ export default function App() {
               <span className="about-card-label">Логопедическая часть</span>
               <h3>Речевой материал</h3>
               <p>Подбор категорий, слов и структуры упражнений для тренировки называния.</p>
-              <strong>Алина, логопед</strong>
+              <strong>Соколова Алина Сергеевна -  Логопед</strong>
             </article>
 
             <article className="about-card">
               <span className="about-card-label">Техническая реализация</span>
               <h3>Интерфейс и упражнения</h3>
               <p>Разработка понятной навигации, интерактивных уровней и визуальной обратной связи.</p>
-              <strong>Виктор, разработчик</strong>
+              <strong>Виктор Нагорный - Разработчик веб-приложений и цифровых сервисов</strong>
             </article>
           </div>
         </section>
