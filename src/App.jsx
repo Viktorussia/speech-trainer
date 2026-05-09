@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import "./App.css";
 
 // ИКОНКИ КАТЕГОРИЙ
@@ -499,7 +499,6 @@ export default function App() {
   const [matchedWordIds, setMatchedWordIds] = useState([]);
   const [wrongLevel2ImageId, setWrongLevel2ImageId] = useState(null);
   const [wrongLevel2WordId, setWrongLevel2WordId] = useState(null);
-
   const [answer, setAnswer] = useState([]);
   const [usedLetterIndexes, setUsedLetterIndexes] = useState([]);
   const [imageOptions, setImageOptions] = useState([]);
@@ -669,6 +668,22 @@ export default function App() {
       }, 700);
     }
   }
+
+  function renderLevelInstruction(ariaLabel, title, steps) {
+    return (
+      <div className="level-instruction" aria-label={ariaLabel}>
+        <span className="level-instruction-title">{title}</span>
+        <div className="level-instruction-flow">
+          {steps.map((step, index) => (
+            <Fragment key={`${step}-${index}`}>
+              {index > 0 && <b aria-hidden="true">→</b>}
+              <span>{step}</span>
+            </Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  }
   
   return (
   <div className="app">
@@ -783,8 +798,8 @@ export default function App() {
           <button className="back-btn" onClick={backToCategories}>
             К категориям
           </button>
-        </div>
-      )}
+  </div>
+)}
 
       {selectedCategory && level === 1 && !finished && (
   <div className="game">
@@ -842,6 +857,14 @@ export default function App() {
         ))}
       </div>
     </div>
+
+    {renderLevelInstruction("Дополнительная инструкция к уровню 1", "Вариант 1.1", [
+      "Нажми 3 звука подряд",
+      "запомни порядок",
+      "звук",
+      "картинка",
+      "повтори последовательность",
+    ])}
   </div>
 )}
 
@@ -902,6 +925,13 @@ export default function App() {
         ))}
       </div>
     </div>
+
+    {renderLevelInstruction("Дополнительная инструкция к уровню 2", "Вариант 2.1", [
+      "Прочитай 3 слова",
+      "запомни",
+      "повтори",
+      "соотнеси последовательность",
+    ])}
   </div>
 )}
 
@@ -948,6 +978,11 @@ export default function App() {
               </button>
             ))}
           </div>
+
+          {renderLevelInstruction("Дополнительная инструкция к уровню 3", "Вариант 3.1", [
+            "Составь 3 слова",
+            "вспомни слова",
+          ])}
         </div>
       )}
     </div>

@@ -126,7 +126,7 @@ h2 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(18px, 2.8vw, 34px);
   width: min(100%, 1120px);
-  margin: clamp(28px, 3.5vw, 40px) auto 0;
+  margin: clamp(72px, 8vw, 104px) auto 0;
   perspective: 1100px;
 }
 
@@ -696,12 +696,59 @@ p {
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 .level-buttons button {
   padding: 18px 22px;
   border-radius: 22px;
   min-width: 190px;
+}
+
+.level-instruction {
+  width: min(100%, 790px);
+  margin: 26px auto 0;
+  padding: 14px 18px;
+  border: 1px solid rgba(0, 212, 71, 0.24);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(236, 253, 245, 0.92), rgba(248, 251, 255, 0.96));
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.1);
+}
+
+.level-instruction-title {
+  display: block;
+  margin-bottom: 10px;
+  color: #087c2b;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.level-instruction-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.level-instruction-flow span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(191, 219, 254, 0.9);
+}
+
+.level-instruction-flow b {
+  color: #00b83d;
+  font-size: 18px;
+  line-height: 1;
 }
 
 @media (max-width: 768px) {
@@ -770,7 +817,7 @@ p {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
     max-width: 420px;
-    margin: 28px auto;
+    margin: 76px auto 0;
   }
 
   .category-card {
@@ -836,6 +883,7 @@ p {
   .level-buttons {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
 
   .level-buttons button,
@@ -929,6 +977,7 @@ p {
   .categories {
     gap: 12px;
     width: 100%;
+    margin-top: 68px;
   }
 
   .category-card {
